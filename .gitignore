@@ -1,6 +1,6 @@
-.idea/
-**/__pycache__
-find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 GnuPG/
 generate_key_env/
 Gpg4win/
+.idea/
+**/__pycache__
+find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
