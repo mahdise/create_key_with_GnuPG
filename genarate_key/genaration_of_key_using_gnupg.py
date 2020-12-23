@@ -7,7 +7,7 @@ from pyseltongue import PlaintextToHexSecretSharer
 def create_key():
 
     gpg = gnupg.GPG()
-    input_data = gpg.gen_key_input()
+    input_data = gpg.gen_key_input(passphrase='passphrase')
 
     key_from_gnupg = gpg.gen_key(input_data)
 
@@ -57,7 +57,6 @@ if __name__ == '__main__':
     # to encrypt the file
     file_path_for_encrypt = None
     new_key = create_key()
-    new_key = '092F12883619EA9A95F804BDE72C50BF3D2113A35'
     print(new_key)
     shares = split_share(new_key)
     print(shares)
