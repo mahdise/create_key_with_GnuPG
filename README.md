@@ -33,16 +33,16 @@ pip install -r requirements.txt
 
 -   To encrypt the file please run: 
     ```
-    file_name.py 
+    encrypt.py 
     ```
     -   Once you run this file you might need to give the desired file to be encrypted as input.
 
 -   To decrypt the file please run: 
     ```
-    file_name.py   
+    decrypt.py   
     ```
    
-    -   To decrypt a file user must needs to set two inputs.
+    -   To decrypt a file user must needs to set two inputs:
         -   The file path of the file to decrypt (already encrypted one)
         -   Shared split Key
 
