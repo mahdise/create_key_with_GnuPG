@@ -1,5 +1,5 @@
 import gnupg
-
+import os
 from pyseltongue import PlaintextToHexSecretSharer
 
 
@@ -7,9 +7,10 @@ def create_key():
 
     # Todo
     # dynamic gpg binary path
-    #password
+    # password
 
-    gpg = gnupg.GPG(gpgbinary=r'C:\Users\Mahdi Islam\Documents\github_\create_key_with_GnuPG\GnuPG\bin\gpg.exe')
+    #gpg = gnupg.GPG(gpgbinary=r'C:\Users\Mahdi Islam\Documents\github_\create_key_with_GnuPG\GnuPG\bin\gpg.exe')
+    gpg = gnupg.GPG()
     input_data = gpg.gen_key_input(
         passphrase='passphrase',
         name_email='testgpguser@mydomai.com',
@@ -24,20 +25,20 @@ def create_key():
     return key_convert_to_string, gpg
 
 
-def encrypt_file(gpg_object,  new_key, file_path = None):
+def encrypt_file(gpg_object,  new_key, file_path):
 
-    gpg_ = gnupg.GPG(gpgbinary=r'C:\Users\Mahdi Islam\Documents\github_\create_key_with_GnuPG\GnuPG\bin\gpg.exe')
-
+    #gpg_ = gnupg.GPG(gpgbinary=r'C:\Users\Mahdi Islam\Documents\github_\create_key_with_GnuPG\GnuPG\bin\gpg.exe')
+    gpg_ = gnupg.GPG()
     # Todo
     # dynamic file path with name
     # dynamic pass phrase
     # encrypt multiple file
 
-    with open(r'C:\Users\Mahdi Islam\Documents\salim\ffffffff.txt', 'rb') as each_file:
+    with open(file_path, 'rb') as each_file:
         status = gpg_.encrypt_file(
             each_file, recipients=[new_key], passphrase="passphrase", sign=False,
             always_trust=True,
-            output=r'C:\Users\Mahdi Islam\Documents\salim\ffffffff.txt.gpg')
+            output=filePath+".gpg")
 
     if status.ok:
         result_of_encrypt = "passed"
@@ -49,29 +50,24 @@ def encrypt_file(gpg_object,  new_key, file_path = None):
 
 def split_share(key):
 
-
-
     if key[0] == "0":
         string_list = list(key)
         string_list[0] = "-"
 
         key_convert_to_string = "".join(string_list)
 
-
-
     thresHold = 2
     shareHolder = 5
     shares = PlaintextToHexSecretSharer.split_secret(
         key, thresHold, shareHolder)
-
 
     return shares
 
 
 def recombine_key(key1, key2):
 
-
-    create_old_key_from_share_part = PlaintextToHexSecretSharer.recover_secret([key1, key2])
+    create_old_key_from_share_part = PlaintextToHexSecretSharer.recover_secret([
+                                                                               key1, key2])
 
     if create_old_key_from_share_part[0] == "-":
         string_list = list(create_old_key_from_share_part)
@@ -82,50 +78,55 @@ def recombine_key(key1, key2):
     return create_old_key_from_share_part
 
 
-def decrypt_file(file_path, old_key, password = "passphrase"):
+def decrypt_file(file_path, old_key, password="passphrase"):
     # Todo
     # dynamic file path with name
     # encrypt multiple file
 
+    gpg_dec = gnupg.GPG()
 
-    gpg_dec = gnupg.GPG(gpgbinary=r'C:\Users\Mahdi Islam\Documents\github_\create_key_with_GnuPG\GnuPG\bin\gpg.exe')
-
-    with open(r'C:\Users\Mahdi Islam\Documents\salim\ffffffff.txt.gpg', 'rb') as f:
-        status = gpg_dec.decrypt_file(f, passphrase=password, output=r'C:\Users\Mahdi Islam\Documents\salim\ffffffff_decryp.txt')
+    with open(file_path, 'rb') as f:
+        status = gpg_dec.decrypt_file(
+            f, passphrase=password, output=file_path.replace('.gpg', 'decrypt'))
 
     if status.ok:
         result_of_decrypt = "passed"
     else:
         result_of_decrypt = "failed"
 
-    print("Decrypted file :",result_of_decrypt )
-
     return result_of_decrypt
 
 
 if __name__ == '__main__':
-    # to encrypt the file
+
     file_path_for_encrypt = None
-    new_key, gpg_main_object = create_key()
 
+    filePath = input("enter filepath: ")
+    if (os.path.exists(filePath)):
+        # Create new key
+        new_key, gpg_main_object = create_key()
+        file_encrypt = encrypt_file(gpg_main_object, new_key, filePath)
+        file_decrypt = decrypt_file(filePath+'.gpg', new_key)
+        print(file_encrypt, file_decrypt)
+    else:
+        print("Path dosen't exist")
 
-    file_encrypt = encrypt_file(gpg_main_object, new_key)
+    #file_encrypt = encrypt_file(gpg_main_object, new_key)
 
-    print("Encryted file : ", file_encrypt)
-    # print("Result for encrypt file", file_encrypt)
-    #
-    split_key = split_share(new_key)
-    print("share part", split_key)
+    #print("Encryted file : ", file_encrypt)
+    ## print("Result for encrypt file", file_encrypt)
+    #split_key = split_share(new_key)
+    #print("share part", split_key)
     # only for exampale
-    frist_share = split_key[1]
-    second_share = split_key[4]
-
-    print("First part share :", frist_share)
-    print("Second part share :", second_share)
-    # # to decrypt the file
-    # share_two_part = None
-    recombine_old_key = recombine_key(frist_share, second_share)
-    print("recover key : ", recombine_old_key)
-    # file_path_for_decrypt = None
-    file_decrypt = decrypt_file(None, new_key)
-    # print("Result for decrypt file", file_decrypt)
+    #frist_share = split_key[1]
+    #second_share = split_key[4]
+#
+    #print("First part share :", frist_share)
+    #print("Second part share :", second_share)
+    # to decrypt the file
+    ## share_two_part = None
+    #recombine_old_key = recombine_key(frist_share, second_share)
+    #print("recover key : ", recombine_old_key)
+    ## file_path_for_decrypt = None
+    #file_decrypt = decrypt_file(None, new_key)
+    ## print("Result for decrypt file", file_decrypt)
