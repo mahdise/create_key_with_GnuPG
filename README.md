@@ -41,9 +41,9 @@ Each recipient needs to hold both the share number (xi, which is not confidentia
 
 Pleae find the necessary dependent libraries by running on your IDE: 
 
-'''\ 
+''' 
 
-pip3 install -r requirements.txt\
+pip3 install -r requirements.txt
 
 '''
 ## Script Navigation
