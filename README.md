@@ -8,11 +8,12 @@
 
 ## Installation requirements
 
-Pleae find the necessary dependent libraries by checking requirement.txt file
+Pleae find the necessary dependent libraries by running: 
+-   pip install -r requirements,txt
 
 ## Script Navigation
 -   Run WWW.py file to encrypt your file
-    -   Once you run this file you might need to give the desised file to be encrypted as input.
+    -   Once you run this file you might need to give the desired file to be encrypted as input.
 
 -   Run QQQ.py file to decrypt the file
     -   To decrypt a file user must need to set two inputs.
