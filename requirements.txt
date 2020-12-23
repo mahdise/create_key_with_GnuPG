@@ -1,0 +1,2 @@
+pyseltongue==0.3.6
+python-gnupg==0.4.6

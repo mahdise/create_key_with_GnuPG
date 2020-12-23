@@ -1,7 +1,7 @@
 import gnupg
 
 from pyseltongue import PlaintextToHexSecretSharer
-
+from save_split import save_split_file
 
 def create_key():
 
@@ -47,8 +47,7 @@ def encrypt_file(gpg_object,  new_key, file_path = None):
     return result_of_encrypt
 
 
-def split_share(key):
-
+def split_share(key, file_name = None):
 
 
     if key[0] == "0":
@@ -64,6 +63,13 @@ def split_share(key):
     shares = PlaintextToHexSecretSharer.split_secret(
         key, thresHold, shareHolder)
 
+    try:
+        if not file_name:
+            file_name = "none"
+        save_split_file(shares, file_name)
+
+    except:
+        print("not yet save")
 
     return shares
 
@@ -108,13 +114,13 @@ if __name__ == '__main__':
     new_key, gpg_main_object = create_key()
 
 
-    file_encrypt = encrypt_file(gpg_main_object, new_key)
+    # file_encrypt = encrypt_file(gpg_main_object, new_key)
 
-    print("Encryted file : ", file_encrypt)
+    # print("Encryted file : ", file_encrypt)
     # print("Result for encrypt file", file_encrypt)
     #
     split_key = split_share(new_key)
-    print("share part", split_key)
+    # print("share part", split_key)
     # only for exampale
     frist_share = split_key[1]
     second_share = split_key[4]
