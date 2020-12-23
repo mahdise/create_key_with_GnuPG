@@ -42,7 +42,9 @@ Each recipient needs to hold both the share number (xi, which is not confidentia
 Pleae find the necessary dependent libraries by running on your IDE: 
 
 '''\ 
+
 pip3 install -r requirements.txt\
+
 '''
 ## Script Navigation
 -   Run file_name.py file to encrypt your file
