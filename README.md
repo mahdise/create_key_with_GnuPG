@@ -41,11 +41,10 @@ Each recipient needs to hold both the share number (xi, which is not confidentia
 
 Pleae find the necessary dependent libraries by running on your IDE: 
 
-''' 
-
+````
 pip3 install -r requirements.txt
 
-'''
+````
 ## Script Navigation
 -   Run file_name.py file to encrypt your file
     -   Once you run this file you might need to give the desired file to be encrypted as input.
@@ -54,6 +53,6 @@ pip3 install -r requirements.txt
     -   To decrypt a file user must need to set two inputs.
         -   The file path of the file to decrypt (alread encrypted one)
         -   Shared split Key
-        
+
 
 
