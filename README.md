@@ -9,8 +9,10 @@
 ## Installation requirements
 
 Pleae find the necessary dependent libraries by running on your IDE: 
--   pip3 install -r requirements.txt
 
+''' 
+pip3 install -r requirements.txt
+'''
 ## Script Navigation
 -   Run WWW.py file to encrypt your file
     -   Once you run this file you might need to give the desired file to be encrypted as input.
