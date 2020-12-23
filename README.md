@@ -33,13 +33,25 @@ pip install -r requirements.txt
 
 ````
 ## Script Navigation
--   Run file_name.py file to encrypt your file
+
+-   To encrypt the file please run:
+    
+    ```
+    
+    file_name.py
+    
+    ```
     -   Once you run this file you might need to give the desired file to be encrypted as input.
 
--   Run QQQ.py file to decrypt the file
-    -   To decrypt a file user must need to set two inputs.
-        -   The file path of the file to decrypt (alread encrypted one)
+-   To decrypt the file please run:
+    
+    ```
+    
+    file_name.py
+    
+    ```
+   
+    -   To decrypt a file user must needs to set two inputs.
+        -   The file path of the file to decrypt (already encrypted one)
         -   Shared split Key
-
-
 
