@@ -9,7 +9,7 @@ def create_key():
     # dynamic gpg binary path
     #password
 
-    gpg = gnupg.GPG(gpgbinary=r'C:\Users\Mahdi Islam\Documents\github_\create_key_with_GnuPG\GnuPG\bin\gpg.exe')
+    gpg = gnupg.GPG(gpgbinary='../GnuPG/bin/gpg.exe')
     input_data = gpg.gen_key_input(
         passphrase='passphrase',
         name_email='testgpguser@mydomai.com',
@@ -26,7 +26,7 @@ def create_key():
 
 def encrypt_file(gpg_object,  new_key, file_path = None):
 
-    gpg_ = gnupg.GPG(gpgbinary=r'C:\Users\Mahdi Islam\Documents\github_\create_key_with_GnuPG\GnuPG\bin\gpg.exe')
+    gpg_ = gnupg.GPG(gpgbinary='../GnuPG/bin/gpg.exe')
 
     # Todo
     # dynamic file path with name
@@ -87,8 +87,7 @@ def decrypt_file(file_path, old_key, password = "passphrase"):
     # dynamic file path with name
     # encrypt multiple file
 
-
-    gpg_dec = gnupg.GPG(gpgbinary=r'C:\Users\Mahdi Islam\Documents\github_\create_key_with_GnuPG\GnuPG\bin\gpg.exe')
+    gpg_dec = gnupg.GPG(gpgbinary='../GnuPG/bin/gpg.exe')
 
     with open(r'C:\Users\Mahdi Islam\Documents\salim\ffffffff.txt.gpg', 'rb') as f:
         status = gpg_dec.decrypt_file(f, passphrase=password, output=r'C:\Users\Mahdi Islam\Documents\salim\ffffffff_decryp.txt')
