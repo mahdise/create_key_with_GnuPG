@@ -8,8 +8,8 @@
 
 ## Installation requirements
 
-Pleae find the necessary dependent libraries by running: 
--   pip install -r requirements,txt
+Pleae find the necessary dependent libraries by running on your IDE: 
+-   pip3 install -r requirements.txt
 
 ## Script Navigation
 -   Run WWW.py file to encrypt your file
