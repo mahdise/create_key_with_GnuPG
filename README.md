@@ -20,8 +20,6 @@ This implementation has the following properties:
 
 -   The recipients of the shares are assigned an integer starting from 1.
 
-we need to specify ssss=True when calling split() and combine().
-
 Each recipient needs to hold both the share number (xi, which is not confidential) and the secret (which needs to be protected securely).
 
 ## Installation requirements
