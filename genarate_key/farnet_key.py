@@ -155,7 +155,4 @@ class BitcoinToZB32SecretSharer(SecretSharer):
     share_charset = zbase32_chars
 
 
-asdf_ = int('3F31E4EE2855A5D406B6ADFF7EC20CDABE742FE4', base=16)
-asdf =SecretSharer()
-asdfgh = asdf.split_secret("3F31E4EE2855A5D406B6ADFF7EC20CDABE742FE4", 2, 5)
-print(asdfgh)
+open('my-unencrypted.txt', 'w').write('You need to Google Venn diagram.')
