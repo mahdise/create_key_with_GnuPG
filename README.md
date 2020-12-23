@@ -30,25 +30,18 @@ Pleae find the necessary dependent libraries by running on your IDE:
 
 ````
 pip install -r requirements.txt
-
 ````
 ## Script Navigation
 
--   To encrypt the file please run:
-    
+-   To encrypt the file please run: 
     ```
-    
-    file_name.py
-    
+    file_name.py 
     ```
     -   Once you run this file you might need to give the desired file to be encrypted as input.
 
--   To decrypt the file please run:
-    
+-   To decrypt the file please run: 
     ```
-    
-    file_name.py
-    
+    file_name.py   
     ```
    
     -   To decrypt a file user must needs to set two inputs.
