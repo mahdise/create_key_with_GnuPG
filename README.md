@@ -9,7 +9,7 @@
 
 This module implements the Shamir’s secret sharing protocol described in the paper [“How to share a secret”](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.80.8910&rep=rep1&type=pdf).
 
-The secret can be split into an arbitrary number of shares (n), such that it is sufficient to collect just k of them to reconstruct it (k < n). For instance, one may want to grant 16 people the ability to access a system with a pass code, at the condition that at least 3 of them are present at the same time. As they join their shares, the pass code is revealed. In that case, n=16 and k=3.
+The secret can be split into an arbitrary number of shares (n), such that it is sufficient to collect just k of them to reconstruct it (k < n). For instance, one may want to grant 5 people the ability to access a system with a pass code, at the condition that at least 2 of them are present at the same time. As they join their shares, the pass code is revealed. In that case, n=5 and k=2.
 
 
 This implementation has the following properties:
