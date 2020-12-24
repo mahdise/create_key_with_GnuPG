@@ -46,4 +46,4 @@ You will have options:
 -   To decrypt the file (Input 2)
     - Enter absolute file file path with file name
     - Enter share part (minimum two)
-        -Should see the result and found the file inside same directory (given file path) 
+        - Should see the result and found the file inside same directory (given file path) 
