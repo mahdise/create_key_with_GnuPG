@@ -3,12 +3,23 @@ import pandas as pd
 
 
 def save_split_file(list_of_split, file_name):
+
+    try :
+        file_name_list = file_name.split(".")
+        file_name_list = file_name_list[0].split("\\")
+        processed_file_name = file_name_list[-1]
+
+    except:
+        processed_file_name = "newly_encrypt_file"
+
+    file_name = processed_file_name
+
     length_of_key = len(list_of_split)
 
     filename = file_name + ".csv"
     '../GnuPG/bin/gpg.exe'
 
-    plot_file_name_dir = 'store_share_code/' + filename
+    plot_file_name_dir = '../store_share_code/' + filename
     list_part = list()
 
     for index in range(0, length_of_key):
@@ -38,6 +49,12 @@ def save_split_file(list_of_split, file_name):
         name = "part_" + str(index)
         data[name] = [value]
     data.to_csv(plot_file_name_dir, index=False, header=True)
+
+    return "Passed"
+
+
+
+
 
 
 if __name__ == '__main__':
