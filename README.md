@@ -1,6 +1,6 @@
 
 
-# Create key with Python gnupg (GPG)
+# Create key with Python gnupg (GPG wrapper for python)
 
 [python-gnupg](https://code.google.com/archive/p/python-gnupg/) is a Python package for encrypting and decrypting strings or files using [GNU Privacy Guard (GnuPG or GPG)](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). GPG is an open source alternative to Pretty Good Privacy (PGP). A popular use of GPG and PGP is encrypting email. For more information, see the [python-gnupg documentation](https://pythonhosted.org/python-gnupg/). Another option for encrypting data from Python is [keyczar](https://github.com/google/keyczar).
 
@@ -31,17 +31,19 @@ pip install -r requirements.txt
 ````
 ## Script Navigation
 
--   To encrypt the file please run: 
-    ```
-    encrypt.py 
-    ```
-    -   Once you run this file you might need to give the desired file to be encrypted as input.
+To run the programme :
+```
+py encrypt_decrypt.py
+ 
+```
+You will have options:
+-   To encrypt the file (Input 1)
+    -   Enter absolute file file path with file name
+        - Should see the result (found the file inside same directory (given file path) ) and share part inside directory (store_share_code)
+        with file name 
+        
 
--   To decrypt the file please run: 
-    ```
-    decrypt.py   
-    ```
-   
-    -   To decrypt a file user must needs to set two inputs:
-        -   The file path of the file to decrypt (already encrypted one)
-        -   Shared split Key
+-   To decrypt the file (Input 2)
+    - Enter absolute file file path with file name
+    - Enter share part (minimum two)
+        -Should see the result and found the file inside same directory (given file path) 
