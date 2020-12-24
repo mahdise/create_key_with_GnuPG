@@ -34,7 +34,6 @@ pip install -r requirements.txt
 To run the programme :
 ```
 py encrypt_decrypt.py
- 
 ```
 You will have options:
 -   To encrypt the file (Input 1)
