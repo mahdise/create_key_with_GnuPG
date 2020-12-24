@@ -18,6 +18,7 @@ def recombine_key(key1, key2):
 
 def decrypt_file(file_path, old_key, password="passphrase"):
     gpg_dec = gnupg.GPG(gpgbinary='../GnuPG/bin/gpg.exe')
+    gpg_dec.import_keys(old_key)
 
     # process output file name
     replace_file_path = file_path.replace('.gpg', '')

@@ -23,7 +23,7 @@ def save_split_file(list_of_split, file_name):
     list_part = list()
 
     for index in range(0, length_of_key):
-        name = "part_" + str(index)
+        name = "part_" + str(index+1)
 
         list_part.append(name)
 
@@ -46,7 +46,7 @@ def save_split_file(list_of_split, file_name):
     data = pd.read_csv(plot_file_name_dir)
 
     for index, value in enumerate(list_of_split):
-        name = "part_" + str(index)
+        name = "part_" + str(index+1)
         data[name] = [value]
     data.to_csv(plot_file_name_dir, index=False, header=True)
 
